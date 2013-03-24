@@ -1,0 +1,18 @@
+.imgright, .imgleft {
+ padding: 20px;
+}
+.imgright {
+ float: right;
+}
+.imgleft {
+ float: left;
+}
+.imgpad {
+ padding: 2px;
+}
+hr {
+ border: 0px;
+ background: url("/themes/bartik/images/tabs-border.png") repeat-x scroll left bottom transparent;
+ clear: both;
+ margin: 10px;
+}

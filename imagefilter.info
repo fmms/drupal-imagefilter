@@ -1,0 +1,8 @@
+name = "Image Filter"
+description = "Easily insert images in Markdown (By Felix)"
+package = "Input filters"
+project = "imagefilter"
+core = 7.x
+files[] = imagefilter.module
+; stylesheets[all][] = imagefilter.css
+version = "7.x-0.1"

@@ -1,0 +1,53 @@
+<?php
+/**
+ * Implementation of hook_filter_info().
+ */
+function imagefilter_filter_info() {
+  return array('imagefilter' => array(
+    'title' => t('Insert Image'),
+    'description' => t('Inserts images nicely.'),
+    'process callback' => '_imagefilter_process',
+    'tips callback' => '_imagefilter_filter_tips',
+  ));
+}
+
+/**
+ * Filter tips callback for imagefilter filter.
+ */
+function _imagefilter_filter_tips($filter, $format, $long) {
+  if ($long) {
+    $output = t('You can use the following syntax ![Description](1.jpg).');
+  }
+  else {
+    $output = t('![Description](1.jpg)');
+  }
+
+  return $output;
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function imagefilter_init() {
+  drupal_add_css(drupal_get_path('module', 'imagefilter') . '/imagefilter.css');
+}
+
+/**
+ * Processing function to apply the imagefilter filters
+ *
+ * @param string $text
+ *    The text to apply the filter on.
+ * @param integer $format
+ *    ID if the input format whose settings to use when applying the filters.
+ * @return string
+ *    The filtered text.
+ */
+function _imagefilter_process($text, $filter, $format, $langcode, $cache, $cache_id) {
+ $image_with_float = '/\!\[(.*)\]\((.*)\)\s*({(.*)})*/';
+ $replacement_with_float= '<a href="?q=sites/default/files/styles/large/public/images/\2" class="colorbox" title="\1" rel="list"><img src="?q=sites/default/files/styles/medium/public/images/\2" class="\4"/></a>';
+ $image = '/\!\[(.*)\]\((.*)\)/';
+ $replacement = '<a href="?q=sites/default/files/styles/large/public/images/\2" class="colorbox" title="\1" rel="list"><img src="?q=sites/default/files/styles/medium/public/images/\2"/></a>';
+ $text = preg_replace($image_with_float, $replacement_with_float, $text);
+ return preg_replace($image, $replacement, $text);
+}
+
