@@ -51,6 +51,7 @@ function _imagefilter_process($text, $filter, $format, $langcode, $cache, $cache
 }
 
 function imagefilter_help($path, $arg) {
-  return t('<p>For more information look at <a href="https://github.com/fmms/drupal-imagefilter">https://github.com/fmms/drupal-imagefilter</a>.</p>');
+  if ($path == 'admin/help#imagefilter')
+    return t('<p>For more information look at <a href="https://github.com/fmms/drupal-imagefilter">https://github.com/fmms/drupal-imagefilter</a>.</p>');
 }
 
