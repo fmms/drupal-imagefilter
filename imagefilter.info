@@ -1,6 +1,9 @@
 name = "Image Filter"
 description = "Easily insert images in Markdown (By Felix)"
+dependencies[] = markdown
+dependencies[] = colorbox
 package = "Input filters"
+
 project = "imagefilter"
 core = 7.x
 files[] = imagefilter.module
