@@ -50,3 +50,7 @@ function _imagefilter_process($text, $filter, $format, $langcode, $cache, $cache
  return preg_replace($image, $replacement, $text);
 }
 
+function imagefilter_help($path, $arg) {
+  return t('<p>For more information look at <a href="https://github.com/fmms/drupal-imagefilter">https://github.com/fmms/drupal-imagefilter</a>.</p>');
+}
+
