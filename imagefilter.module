@@ -17,8 +17,7 @@ function imagefilter_filter_info() {
 function _imagefilter_filter_tips($filter, $format, $long) {
   if ($long) {
     $output = t('You can use the following syntax ![Description](1.jpg).');
-  }
-  else {
+  } else {
     $output = t('![Description](1.jpg)');
   }
 
